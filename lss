@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+function lss() {
+  if [ "$1" = "" ];
+    then ls;
+    return 0;
+  elif [ -f "${@: -1}" ];
+    then less $@;
+  else ls $@;
+  fi
+}
+
+lss $@;
